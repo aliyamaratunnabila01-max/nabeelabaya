@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NABEELA | Modern Abaya</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f4ef;
+            color: #3f332c;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: #f8f4ef;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #3f332c;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #9b765c;
+        }
+
+        .btn {
+            background-color: #8d6e5a;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #6f5241;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8%;
+            gap: 40px;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-text h2 {
+            font-size: 25px;
+            font-weight: normal;
+            margin-bottom: 20px;
+            color: #8d6e5a;
+        }
+
+        .hero-text p {
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            width: 420px;
+            height: 500px;
+            background: linear-gradient(135deg, #d8c4b2, #a88b76);
+            border-radius: 220px 220px 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 80px 8%;
+            text-align: center;
+            background-color: #eee5dc;
+        }
+
+        .about h2,
+        .collection h2,
+        .why h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background-color: #fffaf5;
+            padding: 25px;
+            width: 250px;
+            border-radius: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+            color: #8d6e5a;
+        }
+
+        /* COLLECTION */
+        .collection {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #cdb9a7, #927965);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        /* WHY CHOOSE US */
+        .why {
+            padding: 80px 8%;
+            text-align: center;
+            background-color: #eee5dc;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 80px 8%;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            margin-bottom: 30px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #3f332c;
+            color: white;
+            padding: 40px 8%;
+            text-align: center;
+        }
+
+        footer h2 {
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+        }
+
+        .social a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-image {
+                width: 300px;
+                height: 380px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">NABEELA</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#collection" class="btn">Shop Now</a>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>Modesty,<br>Redefined.</h1>
+
+            <h2>Modern Abaya for Modern Muslim Woman</h2>
+
+            <p>
+                Temukan abaya modern yang memadukan kesopanan,
+                kenyamanan, dan gaya elegan untuk menemani setiap momenmu.
+            </p>
+
+            <a href="#collection" class="btn">
+                Explore Collection
+            </a>
+        </div>
+
+        <div class="hero-image">
+            NABEELA<br>
+            Modern Abaya
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+
+        <h2>About NABEELA</h2>
+
+        <p>
+            NABEELA hadir untuk perempuan muslimah yang ingin tampil
+            syar'i, elegan, dan tetap menjadi dirinya sendiri.
+            Kami percaya bahwa modest fashion dapat menjadi modern,
+            nyaman, dan penuh karakter.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <h3>Modern Design</h3>
+                <p>Desain minimalis dan kekinian untuk gaya modern.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Comfort First</h3>
+                <p>Bahan nyaman untuk menemani aktivitas sehari-hari.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Effortless Elegance</h3>
+                <p>Elegan untuk acara casual maupun formal.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COLLECTION SECTION -->
+    <section class="collection" id="collection">
+
+        <h2>Our Collection</h2>
+
+        <p>Discover your everyday elegance.</p>
+
+        <div class="products">
+
+            <div class="product">
+
+                <div class="product-image">
+                    AURA
+                </div>
+
+                <div class="product-info">
+                    <h3>NABEELA AURA</h3>
+                    <p>Elegant Cream Abaya</p>
+                    <button class="btn" onclick="showMessage('NABEELA AURA')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    LUNA
+                </div>
+
+                <div class="product-info">
+                    <h3>NABEELA LUNA</h3>
+                    <p>Soft Dusty Rose Abaya</p>
+                    <button class="btn" onclick="showMessage('NABEELA LUNA')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    NOIR
+                </div>
+
+                <div class="product-info">
+                    <h3>NABEELA NOIR</h3>
+                    <p>Classic Black Abaya</p>
+                    <button class="btn" onclick="showMessage('NABEELA NOIR')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    SERENITY
+                </div>
+
+                <div class="product-info">
+                    <h3>NABEELA SERENITY</h3>
+                    <p>Calm Sage Green Abaya</p>
+                    <button class="btn" onclick="showMessage('NABEELA SERENITY')">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY CHOOSE US -->
+    <section class="why">
+
+        <h2>Why Choose NABEELA?</h2>
+
+        <div class="features">
+
+            <div class="feature">
+                <h3>Modest</h3>
+                <p>Dirancang untuk mendukung penampilan yang sopan dan elegan.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Timeless</h3>
+                <p>Desain yang tetap stylish dan tidak mudah ketinggalan zaman.</p>
+            </div>
+
+            <div class="feature">
+                <h3>Versatile</h3>
+                <p>Cocok digunakan untuk berbagai momen dan kesempatan.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA SECTION -->
+    <section class="cta" id="contact">
+
+        <h2>Your Elegance Starts Here.</h2>
+
+        <p>
+            Temukan abaya favoritmu dan tampil percaya diri dengan NABEELA.
+        </p>
+
+        <a href="#collection" class="btn">
+            Shop The Collection
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h2>NABEELA</h2>
+
+        <p>Modesty, Redefined.</p>
+
+        <div class="social">
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">WhatsApp</a>
+        </div>
+
+        <br>
+
+        <p>
+            © 2026 NABEELA. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function showMessage(productName) {
+            alert(
+                "Terima kasih telah memilih " +
+                productName +
+                " ✨\n\nDetail produk akan segera tersedia."
+            );
+        }
+
+    </script>
+
+</body>
+</html>
